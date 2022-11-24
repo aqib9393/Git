@@ -1,5 +1,5 @@
 from flask import Flask
-from thresh_Image import local_threah
+
 
 import base64
 app= Flask(__name__)
@@ -14,7 +14,7 @@ def ap():
 
 @app.route('/upload', methods=[ 'POST'])
 def upload():
-    local_threah("hello.jpg")
+    
     return "hello"
     
 
