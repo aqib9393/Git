@@ -1,5 +1,4 @@
 from flask import Flask
-import json
 from thresh_Image import local_threah
 
 import base64
