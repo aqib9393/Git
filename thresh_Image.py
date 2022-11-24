@@ -1,8 +1,6 @@
 import cv2
 import imutils
-from skimage.filters import threshold_local
-from utills import order_points,four_point_transform
-#from pyimagesearch.transform import four_point_transform
+from utills import four_point_transform
 
 
 def local_threah(image):
