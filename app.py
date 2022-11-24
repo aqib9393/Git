@@ -2,7 +2,7 @@ from flask import *
 from flask import Flask , request, Response
 import json
 import base64
-import cv2
+
 
 
 app= Flask(__name__)
