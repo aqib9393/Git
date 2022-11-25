@@ -22,6 +22,7 @@ def ap():
     return "Ap is working"
 
 @app.route('/upload', methods=[ 'POST'])
+#@cross_origin()
 def upload():
     if request.method=="POST":
         if request.files['image']:
@@ -66,6 +67,7 @@ def upload_image():
 
     data_set={'img': base64_lst,'result': True}
     json_dump= json.dumps(data_set)
+    return json_dump
 
     
 
