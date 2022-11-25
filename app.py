@@ -15,14 +15,17 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=['GET'])
+@cross_origin()
 def homepage():
     return "Heroku App"
 
 @app.route('/ap', methods=['GET'])
+@cross_origin()
 def ap():
     return "Ap is working"
 
 @app.route('/upload', methods=[ 'POST'])
+@cross_origin()
 #@cross_origin()
 def upload():
     if request.method=="POST":
@@ -43,6 +46,7 @@ def upload():
                 return json_dump
 
 @app.route('/test', methods=['POST'])
+@cross_origin()
 def upload_image():
     files = request.files.getlist('image')
     file_names = []
