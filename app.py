@@ -23,7 +23,6 @@ def homepage():
     return "Heroku App"
 
 @app.route('/ap', methods=['GET'])
-
 def ap():
     return "Ap is working"
 
@@ -47,7 +46,6 @@ def upload():
                 return json_dump
 
 @app.route('/test', methods=['POST'])
-
 def upload_image():
     files = request.files.getlist('image')
     file_names = []
@@ -74,6 +72,33 @@ def upload_image():
     json_dump= json.dumps(data_set)
     return json_dump
 
+@app.route('/check', methods=['POST'])
+@cross_origin()
+def upload_i():
+    files = request.files.getlist('image')
+    file_names = []
+    base64_lst=[]
+
+    for file in files:
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file_names.append(filename)
+            file.save(filename)
+            #testing start
+            try:
+                local_threah(filename)
+                with open("final.jpg", "rb") as img_file:
+                    my_string = base64.b64encode(img_file.read())
+                base64_lst.append(my_string.decode('utf-8'))
+            except:
+                data_set={'img': "Please choose a valid image "+filename, 'result':False}
+                json_dump= json.dumps(data_set)
+                return json_dump
+
+
+    data_set={'img': base64_lst,'result': True}
+    json_dump= json.dumps(data_set)
+    return json_dump
     
 
 if __name__=="__main__":
