@@ -9,9 +9,8 @@ from flask_cors import CORS, cross_origin
 
 app= Flask(__name__)
 # app.config['CORS_HEADERS'] = 'Content-Type'
-#cors = CORS(app, resources={r"/*": {"origins": "*"}})
-#CORS(app)
-
+# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+# CORS(app)
 
 ALLOWED_EXTENSIONS=set(['png','jpg','jpeg','gif'])
 def allowed_file(filename):
@@ -22,7 +21,7 @@ def homepage():
     return "Heroku App"
 
 @app.route('/ap', methods=['GET'])
-@cross_origin()
+#@cross_origin()
 def ap():
     return "Ap is working"
 
@@ -73,7 +72,7 @@ def upload_image():
     return json_dump
 
 @app.route('/check', methods=['POST'])
-@cross_origin()
+#@cross_origin()
 def upload_i():
     files = request.files.getlist('image')
     file_names = []
@@ -102,4 +101,4 @@ def upload_i():
     
 
 if __name__=="__main__":
-    app.run()
+    app.run(debug=True)
