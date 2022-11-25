@@ -23,7 +23,7 @@ def homepage():
     return "Heroku App"
 
 @app.route('/ap', methods=['GET'])
-@cross_origin()
+
 def ap():
     return "Ap is working"
 
