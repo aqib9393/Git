@@ -5,12 +5,13 @@ import base64
 from thresh_Image import local_threah
 from werkzeug.utils import secure_filename
 #from flask_cors import CORS
-import cv2
-import imutils
-import numpy as np
 
 
 app= Flask(__name__)
+
+ALLOWED_EXTENSIONS=set(['png','jpg','jpeg','gif'])
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=['GET'])
 def homepage():
@@ -38,6 +39,33 @@ def upload():
                 data_set={'img': "Please choose a valid image", 'result':False}
                 json_dump= json.dumps(data_set)
                 return json_dump
+
+@app.route('/test', methods=['POST'])
+def upload_image():
+    files = request.files.getlist('image')
+    file_names = []
+    base64_lst=[]
+
+    for file in files:
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file_names.append(filename)
+            file.save(filename)
+            #testing start
+            try:
+                local_threah(filename)
+                with open("final.jpg", "rb") as img_file:
+                    my_string = base64.b64encode(img_file.read())
+                base64_lst.append(my_string.decode('utf-8'))
+            except:
+                data_set={'img': "Please choose a valid image "+filename, 'result':False}
+                json_dump= json.dumps(data_set)
+                return json_dump
+
+            #testing end
+
+    data_set={'img': base64_lst,'result': True}
+    json_dump= json.dumps(data_set)
 
     
 
