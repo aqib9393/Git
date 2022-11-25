@@ -10,7 +10,7 @@ from flask_cors import CORS, cross_origin
 app= Flask(__name__)
 # app.config['CORS_HEADERS'] = 'Content-Type'
 # cors = CORS(app, resources={r"/*": {"origins": "*"}})
-# CORS(app)
+CORS(app)
 
 ALLOWED_EXTENSIONS=set(['png','jpg','jpeg','gif'])
 def allowed_file(filename):
