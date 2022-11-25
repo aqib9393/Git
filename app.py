@@ -8,8 +8,9 @@ from flask_cors import CORS, cross_origin
 
 
 app= Flask(__name__)
-app.config['CORS_HEADERS'] = 'Content-Type'
-CORS(app)
+# app.config['CORS_HEADERS'] = 'Content-Type'
+# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+# CORS(app)
 
 
 ALLOWED_EXTENSIONS=set(['png','jpg','jpeg','gif'])
@@ -17,7 +18,6 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=['GET'])
-@cross_origin()
 def homepage():
     return "Heroku App"
 
