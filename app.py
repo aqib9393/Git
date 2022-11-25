@@ -3,7 +3,7 @@ from flask import Flask , request, Response
 import json
 import base64
 from werkzeug.utils import secure_filename
-#from flask_cors import CORS
+from flask_cors import CORS
 import cv2
 import imutils
 
