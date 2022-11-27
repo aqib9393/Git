@@ -5,9 +5,11 @@ import base64
 from thresh_Image import local_threah
 from werkzeug.utils import secure_filename
 from flask_cors import CORS, cross_origin
+import sys
 
 
 app= Flask(__name__)
+print(sys.version)
 #app.config['CORS_HEADERS'] = 'Content-Type'
 #cors = CORS(app, resources={r"/*": {"origins": "*"}})
 #CORS(app)
