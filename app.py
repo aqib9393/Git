@@ -10,9 +10,9 @@ import sys
 
 app= Flask(__name__)
 print(sys.version)
-#app.config['CORS_HEADERS'] = 'Content-Type'
-#cors = CORS(app, resources={r"/*": {"origins": "*"}})
-#CORS(app)
+# app.config['CORS_HEADERS'] = 'Content-Type'
+# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 
 ALLOWED_EXTENSIONS=set(['png','jpg','jpeg','gif'])
 def allowed_file(filename):
