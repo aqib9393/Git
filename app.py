@@ -25,7 +25,7 @@ def homepage():
 @app.route('/ap', methods=['GET'])
 #@cross_origin()
 def ap():
-    return "Ap is working"
+    return "VSP is good or Deliotte"
 
 @app.route('/upload', methods=[ 'POST'])
 def upload():
