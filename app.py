@@ -20,7 +20,7 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET'])
 def homepage():
-    return "Heroku App"
+    return "Auranzaib bhai all ok?"
 
 @app.route('/ap', methods=['GET'])
 #@cross_origin()
