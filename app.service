@@ -1,0 +1,13 @@
+[Unit]
+Description=app
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart=/home/ubuntu/Git/run.sh
+
+[Install]
+WantedBy=multi-user.target
