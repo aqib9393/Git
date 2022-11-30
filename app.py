@@ -20,12 +20,7 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET'])
 def homepage():
-    return "Auranzaib bhai all ok?"
-
-@app.route('/ap', methods=['GET'])
-#@cross_origin()
-def ap():
-    return "VSP is good or Deliotte"
+    return "Api is working"
 
 @app.route('/upload', methods=[ 'POST'])
 def upload():
