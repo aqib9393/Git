@@ -41,7 +41,7 @@ def upload():
                 json_dump= json.dumps(data_set)
                 return json_dump
 
-@app.route('/test', methods=['POST'])
+@app.route('/upload-img', methods=['POST'])
 def upload_image():
     files = request.files.getlist('image')
     file_names = []

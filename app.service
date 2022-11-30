@@ -7,7 +7,8 @@ Type=simple
 Restart=always
 RestartSec=1
 User=ubuntu
-ExecStart=/home/ubuntu/Git/run.sh
+WorkingDirectory=/home/ubuntu/Git
+ExecStart=/home/ubuntu/.local/bin/gunicorn app:app --preload
 
 [Install]
 WantedBy=multi-user.target
