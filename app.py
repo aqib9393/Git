@@ -1,17 +1,17 @@
 from flask import *
-from flask import Flask , request, Response
+from flask import Flask , request
 import json
 import base64
 from thresh_Image import local_threah
 from werkzeug.utils import secure_filename
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import sys
 
 
 app= Flask(__name__)
 print(sys.version)
 # app.config['CORS_HEADERS'] = 'Content-Type'
-# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 CORS(app)
 
 ALLOWED_EXTENSIONS=set(['png','jpg','jpeg','gif'])
@@ -20,7 +20,7 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET'])
 def homepage():
-    return "Api is working"
+    return "Api is working perfect"
 
 @app.route('/upload', methods=[ 'POST'])
 def upload():
