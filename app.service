@@ -7,7 +7,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=ubuntu
-WorkingDirectory=/home/ubuntu/Git
+WorkingDirectory=/home/ubuntu/myFlaskApp/Git
 ExecStart=/home/ubuntu/.local/bin/gunicorn app:app --preload
 
 [Install]
